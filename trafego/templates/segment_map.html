@@ -1,0 +1,55 @@
+<!-- Note: THIS CODE WAS AN ADAPTATION FROM PUBLIC AVAILABLE ONES, NOT AN ORIGINAL WORK -->
+
+{% load leaflet_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mapa Interativo</title>
+    {% leaflet_js %} {% leaflet_css %}
+    <style>#map { height: 600px; width: 100%; }</style>
+</head>
+<body>
+    <h1>Mapa Interativo</h1>
+
+    <!-- Search Form, adapted to the context -->
+    <form method="get" action="{% url 'map_view' %}">
+        <label>Segment ID: <input type="text" name="id" value="{{ filters.id }}"></label>
+        <label>Speed: <input type="text" name="speed" value="{{ filters.speed }}"></label>
+        <label>Intensity:
+            <select name="intensity">
+                <option value="">Traffic Intensity?</option>
+                <option value="low" {% if filters.intensity == 'low' %}selected{% endif %}>Low</option>
+                <option value="medium" {% if filters.intensity == 'medium' %}selected{% endif %}>Medium</option>
+                <option value="high" {% if filters.intensity == 'high' %}selected{% endif %}>High</option>
+            </select>
+        </label>
+        <input type="submit" value="Search">
+    </form>
+
+    <!-- Map Container, initialize the map -->
+    <div id="map"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const map = L.map('map').setView([0, 0], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap'
+            }).addTo(map);
+
+            const segments = {{ segments|safe }};
+            if (segments.length) {
+                segments.forEach(s => {
+                    const start = [s.lat_start, s.long_start], end = [s.lat_end, s.long_end];
+                    L.polyline([start, end], {color: 'blue'}).addTo(map);
+                    L.marker(start).addTo(map).bindPopup(`ID: ${s.id}<br>Speed: ${s.speed}<br>Intensity: ${s.intensity}`);
+                    L.marker(end).addTo(map);
+                });
+                map.fitBounds(L.latLngBounds(segments.map(s => [[s.lat_start, s.long_start], [s.lat_end, s.long_end]])));
+            } else {
+                map.setView([0, 0], 2);
+                alert('No segments found.');
+            }
+        });
+    </script>
+</body>
+</html>

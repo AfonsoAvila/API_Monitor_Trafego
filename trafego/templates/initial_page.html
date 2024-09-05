@@ -1,0 +1,73 @@
+<!doctype html>
+<title>API: Ubiwhere Project</title>
+<style>
+  * {
+    box-sizing: border-box; 
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+  }
+  #main {
+    display: flex;
+    flex: 1;
+  }
+  #main > article {
+    flex: 1;
+    order: 1;
+  }
+  #main > nav, 
+  #main > aside {
+    flex: 0 0 20vw;
+  }
+  #main > aside {
+    background: #d1ffec;
+    order: 3;
+  }
+  #main > nav {
+    background: rgb(180, 194, 255);
+    order: 2;
+  }
+  header, footer {
+    background: rgb(73, 198, 202);
+    height: 20vh;
+  }
+  header, footer, article, nav, aside {
+    padding: 1em;
+  }
+</style>
+<body>
+  <header>
+    <h1>API: Monitorização de Tráfego</h1>
+  </header>
+  <div id="main">
+    <article>
+      <h2>Welcome!</h2>
+      <p>Esta é a página inicial para aceder à API. Ao lado direito tem os links disponíveis.</p>
+      <ol>
+        <li><b>Admin Dashboard:</b> Página de Login da django-admin.</li>
+        <li><b>Lista de Segmentos de Estrada:</b> Permite visualizar e pesquisar todos so segmentos de estrada e os seus detalhes na database.</li>
+        <li><b>Documentação (<i>api/docs</i>):</b> Página com descrição das funcionalidades da API e consegue executar comandos consoante a permissão.</li>
+        <li><b>Mapa Interativo (not completed):</b> Página que contém um mapa interativo para melhor visualização geográfica nos segmentos de estrada. Encontra-se incompleto por algumas incoerências. </li>
+      </ol>
+    </article>
+    <nav>
+      <h2>URLS disponíveís:</h2>
+      <ul>
+        <li><a href="/admin/">Admin Dashboard</a></li>
+        <li><a href="/api/modelssegmentos-estrada">Lista de Segmentos de Estrada</a></li>
+        <li><a href="/api/docs">Documentação (<i>api/docs</i>)</a></li>
+        <li><a href="/map">Mapa Interativo (not completed)</a></li>
+      </ul>
+    </nav>
+    <aside>
+      <h2>Contato</h2>
+      <p>Para mais informações, poderá contactar-me no e-mail: <a href="mailto:afonso.avila2001@gmail.com">afonso.avila2001@gmail.com</a>.</p>
+    </aside>
+  </div>
+  <footer>
+    <p>&copy; Website Template taken from <a href=https://www.quackit.com/html/templates/css_flexbox_templates.cfm>here.</a>2024.</p>
+  </footer>
+</body>
