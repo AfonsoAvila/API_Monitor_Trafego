@@ -70,12 +70,6 @@ Foram criados 10 testes unitários na API. Pode testar a API com o comando:
 python manage.py test
 ```
 
-## Informações
-
-Para mais informações ou algum problema, poderá contactar-me no e-mail: afonso.avila2001@gmail.com
-
-
-
 
 ##----------------------------------------EN----------------------------------------------##
 
@@ -149,7 +143,3 @@ Possible Endpoints are noticeable.
 ```
 python test manage.py
 ```
-
-## Information
-
-For more information or any problems, you can contact me at: afonso.avila2001@gmail.com
