@@ -21,9 +21,7 @@ schema_view = get_schema_view(
             "- **Lista dos Segmentos de Estrada**: Permite visualizar todos os segmentos de estrada na database - como os dados geográficos, velocidade média e data e hora de registo.\n"
             "- **Detalhes do Segmento de Estrada**: É possível obter os detalhes de um ou mais segmentos de estrada com base nos filtros implementados (através do ID, velocidade e/ou intensidade de tráfego).\n"
             "- **Permissões do Administrador**: Adicionar, editar e remover qualquer segmento de estrada. O administrador também consegue visualizar os segmentos de estrada mais procurados, pelo usuário comum - anónimo.\n"
-            "- **Gestão de Utilizadores**: Através de django-admin permite fazer uma gestão dos utilizadores autenticados (e.g. outros administardores).\n"
-            "#### Contato\n\n"
-            "Para mais informações, poderá contactar-me no e-mail: [afonso.avila2001@gmail.com](mailto:afonso.avila2001@gmail.com)\n\n",
+            "- **Gestão de Utilizadores**: Através de django-admin permite fazer uma gestão dos utilizadores autenticados (e.g. outros administardores).\n",
         contact=openapi.Contact(email="afonso.avila2001@gmail.com"),
         license=openapi.License(name="UbiWhere Project"),
     ),
